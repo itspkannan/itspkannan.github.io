@@ -35,6 +35,15 @@ Built a modular proof-of-concept workshop demonstrating Open Policy Agent (OPA) 
 
 🔗 [View on GitHub](https://github.com/itspkannan/OPA-Workshop)
 
+### Kubernetes Lab
+
+A portfolio of Kubernetes hands-on labs, including:
+- K3d setup
+- NGINX ingress configuration
+- Helm-based deployment of microservices
+
+🔗 [View on GitHub](https://github.com/itspkannan/kubernetes_lab)
+
 ### 📈 Quant Strategy Lab – Learnings and Prototyping
 
 Designed and evaluated quantitative trading strategies using R, with a focus on technical indicators and portfolio-level optimization.
