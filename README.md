@@ -58,12 +58,6 @@ Designed and evaluated quantitative trading strategies using R, with a focus on 
 🔗 [View on GitHub](https://github.com/itspkannan/quant-strategy-lab)
 
 
-### 🛠️ Utilities — A Developer Toolkit
-
-Here’s a polished summary you can embed in your GitHub Pages site (`https://itspkannan.github.io/`), designed to showcase the **Utilities** toolkit and its evolving scope:
-
----
-
 ## 🛠️ Utilities — A Developer Toolkit
 
 A growing collection of **handy scripts and snippets** that streamline common developer workflows:
