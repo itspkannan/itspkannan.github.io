@@ -44,18 +44,23 @@ A portfolio of Kubernetes hands-on labs, including:
 
 🔗 [View on GitHub](https://github.com/itspkannan/kubernetes_lab)
 
-### 📈 Quant Strategy Lab – Learnings and Prototyping
+### 📈 Quant Lab – Learn, Prototype & Research in Quantitative Finance
 
-Designed and evaluated quantitative trading strategies using R, with a focus on technical indicators and portfolio-level optimization.
+A fully modular research lab combining **R**, **QuantStrat/PortfolioAnalytics**, and **PineScript** to build, validate, and document trading strategies—plus deep analyses using Monte Carlo, walk-forward methods, volatility modeling, and macro event studies.
 
-- 🔁 Implemented strategies like **Linear Regression Curve and Moving Average Crossover**  
-- 🧪 Used `QuantStrat`, `PortfolioAnalytics`, and `TTR` packages for backtesting and risk modeling  
-- 📉 Measured performance using **Sharpe Ratio**, **Max Drawdown**, and **Equity Curve Visualizations**  
-- 🧠 Applied **walk-forward optimization** for parameter tuning across rebalance windows  
-- 🔗 Connected with **TradingView PineScript** to visualize real-time indicator alignment  
-- 📁 Organized into reproducible R scripts and notebooks for ongoing research
+- 🔁 Built strategies include **Linear Regression Curves**, **SMA Crossovers**, and **Stop‑Loss Optimization**  
+- 🎯 Evaluated via **Sharpe Ratio**, **Max Drawdown**, **Walk‑Forward Equity Curves**, and **Monte Carlo robustness** simulations  
+- 🧪 Used `quantstrat`’s **walk.forward** for repeated in/out‑of‑sample parameter optimization :contentReference[oaicite:21]{index=21}  
+- 🌐 Developed **PineScript indicators** for visual signal alignment on TradingView  
+- 🧠 Conducted ETF & volatility‑event research (e.g. VIX spikes, macro announcements)  
+- 📁 Scripts are reproducible and modular, with detailed RMarkdown (`ProjectReport.Rmd`) and PDF outputs  
+- 📖 Referenced formal studies on walk‑forward analysis (Pardo, 1992) and Monte Carlo in finance (GBM, VaR simulation)
 
-🔗 [View on GitHub](https://github.com/itspkannan/quant-strategy-lab)
+
+[Explore the full repo on GitHub](https://github.com/itspkannan/quant-lab) for code, reports, and strategy breakdowns.
+
+
+🔗 [View on GitHub](https://github.com/itspkannan/quant-lab)
 
 
 ## 🛠️ Utilities — A Developer Toolkit
