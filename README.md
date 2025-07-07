@@ -24,6 +24,20 @@
 
 ## 🛠️ Personal Projects
 
+### ☁️ AWS Microservices Lab – Local AWS Prototyping with Spring Boot & LocalStack
+
+A modular, developer-friendly lab for building and testing AWS microservices **locally** using **Spring Boot**, **Terraform**, and **LocalStack**. Simulates real AWS services like messaging, storage, and config management—ideal for fast iteration and testing.
+
+* 📬 Asynchronous messaging with **SNS → SQS** for event-driven flows
+* 🗂️ File handling with **S3**, and runtime configuration using **SSM Parameter Store**
+* 🔐 Simulated **IAM-based access control** for service-to-service auth workflows
+* 🧪 Uses `LocalStack` to mock AWS services, with Docker Compose for orchestration
+* 🛠️ Infra as code via **Terraform** for reproducible setup
+* 🧰 Includes REST APIs (e.g. `POST /api/orders`) and example curl scripts to test flows
+* 📁 Structured as a Gradle-based monorepo with shared libraries and clear service boundaries
+
+[View on GitHub](https://github.com/itspkannan/aws-microservices-workshop-localstack) for code, infra scripts, and API examples.
+
 ### 🔐 Open Policy Agent(OPA) Workshop – Rest API Authorization using OPA
 
 Built a modular proof-of-concept workshop demonstrating Open Policy Agent (OPA) integration in modern microservices architectures:
@@ -57,13 +71,10 @@ A fully modular research lab combining **R**, **QuantStrat/PortfolioAnalytics**,
 - 📖 Referenced formal studies on walk‑forward analysis (Pardo, 1992) and Monte Carlo in finance (GBM, VaR simulation)
 
 
-[Explore the full repo on GitHub](https://github.com/itspkannan/quant-lab) for code, reports, and strategy breakdowns.
+[[View on GitHub]](https://github.com/itspkannan/quant-lab) for code, reports, and strategy breakdowns.
 
 
-🔗 [View on GitHub](https://github.com/itspkannan/quant-lab)
-
-
-## 🛠️ Utilities — A Developer Toolkit
+## 🛠️ Tinkerpad — Developer Tools & Learning Notes 
 
 A growing collection of **handy scripts and snippets** that streamline common developer workflows:
 
@@ -73,3 +84,4 @@ A growing collection of **handy scripts and snippets** that streamline common de
 * **Temporal Microservices**: Bootstrap and manage Temporal workflows and workers.
 * **Gradle Snippets**: Reusable `build-static-analysis.gradle` for linting and quality checks.
 
+🔗 [View on GitHub](https://github.com/itspkannan/tinkerpad)
