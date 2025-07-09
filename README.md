@@ -62,16 +62,21 @@ A portfolio of Kubernetes hands-on labs, including:
 
 Exploring quantitative studies in trading, finance, and market behavior.
 
-#### 📈 [Simulation Models](https://github.com/itspkannan/financial-models-lab)
+#### 📈 Simulation Models
 
 - 🔄 Stochastic Models: Includes Random Walk and Monte Carlo Simulation techniques
 - 📈 Use Cases: Applied for asset price modeling and strategy simulation in quantitative finance (TODO)
 
-####  📰 [Event Studies](https://github.com/itspkannan/event-studies) 
+🔗 [View on GitHub]((https://github.com/itspkannan/financial-models-lab)
+
+
+####  📰 Event Studies
 
 - 📰 News & Events Impact: Market reactions to earnings, breaking news, and macroeconomic surprises (TODO)
 
-#### 🧠 [Quantitative Strategy Prototyping](https://github.com/itspkannan/quant-lab)
+🔗 [View on GitHub](https://github.com/itspkannan/event-studies)
+
+#### 🧠 Quantitative Strategy Prototyping
 
 * 📊 Technical signal prototyping using **R/Python**, **PineScript**, and **walk-forward backtesting**
 * 🔁 Built strategies include **Linear Regression Curves**, **SMA Crossovers**, and **Stop‑Loss Optimization**
@@ -79,7 +84,10 @@ Exploring quantitative studies in trading, finance, and market behavior.
 * 🌐 Developed **PineScript indicators** for visual signal alignment on TradingView
 * 🧠 Conducted **ETF** & **volatility‑event research** (e.g. **VIX spikes**, **macro announcements**)
 
-### 🛠️ Tinkerpad — Developer Tools & Learning Notes 
+🔗 [View on GitHub](https://github.com/itspkannan/quant-lab)
+
+
+### 🛠️ Tinkerpad — Developer Tools & Learning Notes
 
 A growing collection of **handy scripts and snippets** that streamline common developer workflows:
 
