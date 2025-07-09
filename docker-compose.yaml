@@ -1,0 +1,11 @@
+
+
+services:
+  github-index-test:
+    image: nginx:latest
+    container_name: github-index-test
+    ports:
+      - "8080:80"
+    volumes:
+      - $PWD:/usr/share/nginx/html:ro
+      - $PWD/conf/nginx.conf:/etc/nginx/conf.d/default.conf:ro

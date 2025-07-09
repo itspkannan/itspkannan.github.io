@@ -3,211 +3,133 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Priyesh Kannan | Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Priyesh Kannan</title>
   <style>
-    body {
-      font-family: system-ui, sans-serif;
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-      line-height: 1.6;
-      background-color: #fdfdfd;
-      color: #333;
+    html, body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #fff;
     }
-    h1, h2, h3 {
-      color: #2c3e50;
+
+    .tabs {
+      display: flex;
+      background-color: #000;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      height: 60px;
+      padding: 0 10px;
     }
-    a {
-      color: #007acc;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    ul {
-      padding-left: 1.5rem;
-    }
-    code {
-      background: #eee;
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
-    }
-    hr {
+
+    .tabs button {
+      background-color: #000;
       border: none;
-      border-top: 1px solid #ccc;
-      margin: 2rem 0;
+      outline: none;
+      padding: 12px 20px;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      margin-right: 10px;
+      border-radius: 0 0 12px 12px;
+      transition: background 0.3s ease;
+    }
+
+    .tabs button:hover {
+      background-color: #333;
+    }
+
+    .tabs button.active {
+      background-color: #1abc9c;
+      color: black;
+      font-weight: bold;
+    }
+
+    .tab-content {
+      padding-top: 60px;
+    }
+
+    .layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: 240px;
+      background: #000;
+      color: white;
+      padding: 20px;
+      min-height: calc(100vh - 60px);
+    }
+
+    .sidebar h3 {
+      margin-bottom: 10px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #ccc;
+      text-decoration: none;
+      margin: 8px 0;
+    }
+
+    .sidebar a:hover {
+      color: #1abc9c;
+    }
+
+    .content {
+      flex: 1;
+      padding: 30px;
+      background: #fff;
+    }
+
+    section {
+      margin-bottom: 60px;
+    }
+
+    :target::before {
+      content: "";
+      display: block;
+      height: 60px;
+      margin-top: -60px;
+      visibility: hidden;
     }
   </style>
 </head>
 <body>
-<h1>Priyesh Kannan</h1>
 
-<p><strong>Senior Software Engineer</strong><br />
-📍 San Jose, CA<br />
-📧 priyesh.kannan@gmail.com
-🌐 https://itspkannan.github.io</p>
+  <div class="tabs">
+    <button class="tablink active" data-tab="about.html">About</button>
+    <button class="tablink" data-tab="projects.html">Personal Projects</button>
+  </div>
 
-<hr />
+  <div id="tab-container" class="tab-content"></div>
 
-<h2>🛠 Skills</h2>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const buttons = document.querySelectorAll(".tablink");
+      const container = document.getElementById("tab-container");
 
-<ul>
-<li><strong>Languages</strong>: Python, Java, Groovy, C#, JavaScript  </li>
-<li><strong>Cloud</strong>: AWS, Azure, GCP  </li>
-<li><strong>Containers</strong>: Kubernetes (EKS/AKS/GKS, K3D), Docker  </li>
-<li><strong>Databases</strong>: Oracle, MySQL, MongoDB, Cassandra, BigQuery, Spanner  </li>
-<li><strong>Messaging</strong>: RabbitMQ, Kafka, AWS SQS, GCP Pub/Sub  </li>
-<li><strong>DevOps</strong>: Jenkins, GitLab CI/CD, Terraform, Helm, Argo CD  </li>
-<li><strong>Security</strong>: Open Policy Agent(OPA)/Rego, OAuth2, IAM, MFA  </li>
-<li><strong>Monitoring</strong>: Prometheus, Grafana, Splunk, Datadog, Jaeger, OTEL  </li>
-<li><strong>Frameworks</strong>: Spring/Spring Boot/Spring JPA, GraphQL, REST, CQRS, gRPC, Event-driven  </li>
-<li><strong>Testing</strong>: Pytest, JUnit, Groovy, Mock/Powermock</li>
-</ul>
+      async function loadTab(file, btn) {
+        const response = await fetch(file);
+        const html = await response.text();
+        container.innerHTML = html;
 
-<hr />
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+      }
 
-<h2>🛠️ Personal Projects</h2>
+      loadTab("about.html", buttons[0]);
 
-<section id="aws-lab">
-  <h2>☁️ AWS Microservices Lab — LocalStack Development</h2>
-  <p>
-    <strong>Goal:</strong> Simulate AWS microservice architecture locally for rapid prototyping.
-  </p>
-
-  <ul>
-    <li>🔧 Developed REST-based microservices using Spring Boot and Gradle</li>
-    <li>📬 Asynchronous communication using <code>SNS</code> and <code>SQS</code></li>
-    <li>🗂️ File storage via <code>S3</code>, configuration via <code>SSM</code></li>
-    <li>🔐 Simulated authentication/authorization with <code>IAM</code></li>
-    <li>🛠️ Automated setup using <code>Terraform</code> and <code>Docker Compose</code></li>
-  </ul>
-
-  <p>
-    📁 <a href="https://github.com/itspkannan/aws-microservices-workshop-localstack" target="_blank">View on GitHub →</a>
-  </p>
-</section>
-
-<section id="opa-workshop">
-  <h2>🔐 OPA Workshop — Policy-Driven Microservices</h2>
-  <p>
-    <strong>Goal:</strong> Build a modular environment to test <code>Open Policy Agent</code> integration with modern microservices.
-  </p>
-
-  <ul>
-    <li>✅ Supports local, bundle server, and S3-based Rego policy loading</li>
-    <li>🔒 Enforces field-level access with JWT and OAuth2 authorization</li>
-    <li>🧪 Demonstrates real-world authorization workflows using Sanic API</li>
-    <li>🚀 Deployable via Docker and Helm with K3d simulating Kubernetes</li>
-  </ul>
-
-  <p>
-    🧠 Ideal for understanding how policy enforcement works in cloud-native apps.
-  </p>
-
-  <p>
-    📁 <a href="https://github.com/itspkannan/OPA-Workshop" target="_blank">View on GitHub →</a>
-  </p>
-</section>
-
-<section id="authx-workshop">
-  <h2>🔐 AuthX Workshop — OAuth2 & OIDC Playground</h2>
-  <p>
-    <strong>Goal:</strong> Explore and understand <code>OAuth2</code> and <code>OpenID Connect</code> using <a href="https://www.keycloak.org/" target="_blank">Keycloak</a> as an Identity Provider. This hands-on project sets up a complete environment to test client authentication flows, token issuance, and policy enforcement via OPA.
-  </p>
-
-  <ul>
-    <li>🧪 Provision demo clients, realms, roles, and users via Terraform.</li>
-    <li>⚙️ Run a Keycloak server using Docker Compose with preconfigured clients and admin UI.</li>
-    <li>🔄 Test password grants, client credentials, and token introspection.</li>
-    <li>🛡️ Integrate <strong>Open Policy Agent (OPA)</strong> for fine-grained authorization.</li>
-    <li>📂 Includes Makefile automation for local testing and sandbox provisioning.</li>
-  </ul>
-
-  <p>
-    🧠 Ideal for learning how modern identity, access management, and policy enforcement works in real-world applications.
-  </p>
-
-  <p>
-    📁 <a href="https://github.com/itspkannan/authx-workshop" target="_blank">View on GitHub →</a>
-  </p>
-</section>
-
-<section id="k8s-lab">
-  <h2>📦 Kubernetes Lab — Hands-On K8s Features</h2>
-  <p>
-    <strong>Goal:</strong> Gain hands-on Kubernetes experience with local clusters and microservices deployments.
-  </p>
-
-  <ul>
-    <li>📦 K3d-based local Kubernetes setup</li>
-    <li>🌐 NGINX ingress and service routing</li>
-    <li>🚀 Helm charts for microservice deployment and updates</li>
-  </ul>
-
-  <p>
-    🧠 Helps in mastering Kubernetes operations and Helm packaging.
-  </p>
-
-  <p>
-    📁 <a href="https://github.com/itspkannan/kubernetes_lab" target="_blank">View on GitHub →</a>
-  </p>
-</section>
-
-<section id="financial-studies">
-  <h2>📚 Financial Studies</h2>
-  <p>
-    Exploring quantitative studies in trading, finance, and market behavior.
-  </p>
-
-  <h3>📈 Simulation Models </h3>
-  <ul>
-    <li>🔄 <strong>Stochastic Models</strong>: Includes Random Walk and Monte Carlo Simulation techniques</li>
-    <li>📈 <strong>Use Cases</strong>: Applied for asset price modeling and strategy simulation in quantitative finance (TODO)</li>
-  </ul>
-  <p>
-    📁 <a href="https://github.com/itspkannan/financial-models-lab" target="_blank">View on GitHub →</a>
-  </p>
-
-  <h3>📰 Event Studies</h3>
-  <ul>
-    <li>📰 <strong>News & Events Impact</strong>: Market reactions to earnings, breaking news, and macroeconomic surprises (TODO)</li>
-  </ul>
-  <p>
-    📁 <a href="https://github.com/itspkannan/event-studies-lab" target="_blank">View on GitHub →</a>
-  </p>
-
-  <h3>🧠 Quantitative Strategy Prototyping</h3>
-  <ul>
-    <li>📊 Technical signal prototyping using <strong>R/Python</strong>, <strong>PineScript</strong>, and <strong>walk-forward backtesting</strong></li>
-    <li>🔁 Built strategies include <strong>Linear Regression Curves</strong>, <strong>SMA Crossovers</strong>, and <strong>Stop‑Loss Optimization</strong></li>
-    <li>🧪 Used <code>quantstrat</code>’s <strong>walk.forward</strong> for repeated in/out‑of‑sample parameter optimization</li>
-    <li>🌐 Developed <strong>PineScript indicators</strong> for visual signal alignment on TradingView</li>
-    <li>🧠 Conducted <strong>ETF</strong> & <strong>volatility‑event research</strong> (e.g. <strong>VIX spikes</strong>, <strong>macro announcements</strong>)</li>
-  </ul>
-  <p>
-    📁 <a href="https://github.com/itspkannan/quant-lab" target="_blank">View on GitHub →</a>
-  </p>
-</section>
-
-<section id="tinkerpad">
-  <h2>🛠️ Tinkerpad — Developer Tools & Learning Notes </h2>
-  <p>
-    <strong>Goal:</strong> Centralize useful developer scripts, notes, and bootstrapping tools.
-  </p>
-
-  <ul>
-    <li>📝 <strong>Notes:</strong> Covers system design, dev workflows, and engineering insights</li>
-    <li>🧱 <strong>Architecture:</strong> Generate diagrams from plain-text specs</li>
-    <li>🐍 <strong>Python:</strong> Project scaffolding with Poetry via <code>pyproject.sh</code></li>
-    <li>🍎 <strong>macOS:</strong> Environment automation and setup helpers</li>
-    <li>⏳ <strong>Temporal:</strong> Workflow orchestration boilerplate</li>
-    <li>📦 <strong>Gradle:</strong> Static analysis & quality config snippets</li>
-  </ul>
-
-  <p>
-    📁 <a href="https://github.com/itspkannan/tinkerpad" target="_blank">View on GitHub →</a>
-  </p>
-</section>
+      buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const file = btn.getAttribute("data-tab");
+          loadTab(file, btn);
+        });
+      });
+    });
+  </script>
 </body>
 </html>

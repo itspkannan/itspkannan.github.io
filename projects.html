@@ -1,143 +1,88 @@
-<h2>Personal Projects</h2>
- <p>
-        <section id="aws-lab">
-          <h2>☁️ AWS Microservices Lab — LocalStack Development</h2>
-          <p>
-            <strong>Goal:</strong> Simulate AWS microservice architecture locally for rapid prototyping.
-          </p>
 
-          <ul>
-            <li>🔧 Developed REST-based microservices using Spring Boot and Gradle</li>
-            <li>📬 Asynchronous communication using <code>SNS</code> and <code>SQS</code></li>
-            <li>🗂️ File storage via <code>S3</code>, configuration via <code>SSM</code></li>
-            <li>🔐 Simulated authentication/authorization with <code>IAM</code></li>
-            <li>🛠️ Automated setup using <code>Terraform</code> and <code>Docker Compose</code></li>
-          </ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Projects</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      height: 100%;
+      background: #000;
+    }
 
-          <p>
-            📁 <a href="https://github.com/itspkannan/aws-microservices-workshop-localstack" target="_blank">View on GitHub →</a>
-          </p>
-        </section>
+    .tabs {
+      display: flex;
+      background-color: #000;
+      height: 60px;
+      align-items: center;
+      padding: 0 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+    }
 
-        <section id="opa-workshop">
-          <h2>🔐 OPA Workshop — Policy-Driven Microservices</h2>
-          <p>
-            <strong>Goal:</strong> Build a modular environment to test <code>Open Policy Agent</code> integration with modern microservices.
-          </p>
+    .tabs a {
+      color: white;
+      text-decoration: none;
+      margin-right: 20px;
+      padding: 10px 16px;
+      border-radius: 0 0 10px 10px;
+    }
 
-          <ul>
-            <li>✅ Supports local, bundle server, and S3-based Rego policy loading</li>
-            <li>🔒 Enforces field-level access with JWT and OAuth2 authorization</li>
-            <li>🧪 Demonstrates real-world authorization workflows using Sanic API</li>
-            <li>🚀 Deployable via Docker and Helm with K3d simulating Kubernetes</li>
-          </ul>
+    .tabs a.active {
+      background-color: #1abc9c;
+      color: black;
+      font-weight: bold;
+    }
 
-          <p>
-            🧠 Ideal for understanding how policy enforcement works in cloud-native apps.
-          </p>
+    .main-layout {
+      display: flex;
+      position: absolute;
+      top: 60px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      overflow: hidden;
+    }
 
-          <p>
-            📁 <a href="https://github.com/itspkannan/OPA-Workshop" target="_blank">View on GitHub →</a>
-          </p>
-        </section>
+    iframe {
+      border: none;
+    }
 
-        <section id="authx-workshop">
-          <h2>🔐 AuthX Workshop — OAuth2 & OIDC Playground</h2>
-          <p>
-            <strong>Goal:</strong> Explore and understand <code>OAuth2</code> and <code>OpenID Connect</code> using <a href="https://www.keycloak.org/" target="_blank">Keycloak</a> as an Identity Provider. This hands-on project sets up a complete environment to test client authentication flows, token issuance, and policy enforcement via OPA.
-          </p>
+    .sidebar-frame {
+      width: 240px;
+      height: 100%;
+    }
 
-          <ul>
-            <li>🧪 Provision demo clients, realms, roles, and users via Terraform.</li>
-            <li>⚙️ Run a Keycloak server using Docker Compose with preconfigured clients and admin UI.</li>
-            <li>🔄 Test password grants, client credentials, and token introspection.</li>
-            <li>🛡️ Integrate <strong>Open Policy Agent (OPA)</strong> for fine-grained authorization.</li>
-            <li>📂 Includes Makefile automation for local testing and sandbox provisioning.</li>
-          </ul>
+    .content-frame {
+      flex: 1;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
 
-          <p>
-            🧠 Ideal for learning how modern identity, access management, and policy enforcement works in real-world applications.
-          </p>
+  <div class="tabs">
+    <a href="index.html">About</a>
+    <a href="projects.html" class="active">Personal Projects</a>
+  </div>
 
-          <p>
-            📁 <a href="https://github.com/itspkannan/authx-workshop" target="_blank">View on GitHub →</a>
-          </p>
-        </section>
+  <div class="main-layout">
+    <iframe class="sidebar-frame" src="leftmenu.html"></iframe>
+    <iframe class="content-frame" id="content-frame" src="cloudlab.html"></iframe>
+  </div>
 
-        <section id="k8s-lab">
-          <h2>📦 Kubernetes Lab — Hands-On K8s Features</h2>
-          <p>
-            <strong>Goal:</strong> Gain hands-on Kubernetes experience with local clusters and microservices deployments.
-          </p>
-
-          <ul>
-            <li>📦 K3d-based local Kubernetes setup</li>
-            <li>🌐 NGINX ingress and service routing</li>
-            <li>🚀 Helm charts for microservice deployment and updates</li>
-          </ul>
-
-          <p>
-            🧠 Helps in mastering Kubernetes operations and Helm packaging.
-          </p>
-
-          <p>
-            📁 <a href="https://github.com/itspkannan/kubernetes_lab" target="_blank">View on GitHub →</a>
-          </p>
-        </section>
-
-        <section id="financial-studies">
-          <h2>📚 Financial Studies</h2>
-          <p>
-            Exploring quantitative studies in trading, finance, and market behavior.
-          </p>
-
-          <h3>📈 Simulation Models </h3>
-          <ul>
-            <li>🔄 <strong>Stochastic Models</strong>: Includes Random Walk and Monte Carlo Simulation techniques</li>
-            <li>📈 <strong>Use Cases</strong>: Applied for asset price modeling and strategy simulation in quantitative finance (TODO)</li>
-          </ul>
-          <p>
-            📁 <a href="https://github.com/itspkannan/financial-models-lab" target="_blank">View on GitHub →</a>
-          </p>
-
-          <h3>📰 Event Studies</h3>
-          <ul>
-            <li>📰 <strong>News & Events Impact</strong>: Market reactions to earnings, breaking news, and macroeconomic surprises (TODO)</li>
-          </ul>
-          <p>
-            📁 <a href="https://github.com/itspkannan/event-studies-lab" target="_blank">View on GitHub →</a>
-          </p>
-
-          <h3>🧠 Quantitative Strategy Prototyping</h3>
-          <ul>
-            <li>📊 Technical signal prototyping using <strong>R/Python</strong>, <strong>PineScript</strong>, and <strong>walk-forward backtesting</strong></li>
-            <li>🔁 Built strategies include <strong>Linear Regression Curves</strong>, <strong>SMA Crossovers</strong>, and <strong>Stop‑Loss Optimization</strong></li>
-            <li>🧪 Used <code>quantstrat</code>’s <strong>walk.forward</strong> for repeated in/out‑of‑sample parameter optimization</li>
-            <li>🌐 Developed <strong>PineScript indicators</strong> for visual signal alignment on TradingView</li>
-            <li>🧠 Conducted <strong>ETF</strong> & <strong>volatility‑event research</strong> (e.g. <strong>VIX spikes</strong>, <strong>macro announcements</strong>)</li>
-          </ul>
-          <p>
-            📁 <a href="https://github.com/itspkannan/quant-lab" target="_blank">View on GitHub →</a>
-          </p>
-        </section>
-
-        <section id="tinkerpad">
-          <h2>🛠️ Tinkerpad — Developer Tools & Learning Notes </h2>
-          <p>
-            <strong>Goal:</strong> Centralize useful developer scripts, notes, and bootstrapping tools.
-          </p>
-
-          <ul>
-            <li>📝 <strong>Notes:</strong> Covers system design, dev workflows, and engineering insights</li>
-            <li>🧱 <strong>Architecture:</strong> Generate diagrams from plain-text specs</li>
-            <li>🐍 <strong>Python:</strong> Project scaffolding with Poetry via <code>pyproject.sh</code></li>
-            <li>🍎 <strong>macOS:</strong> Environment automation and setup helpers</li>
-            <li>⏳ <strong>Temporal:</strong> Workflow orchestration boilerplate</li>
-            <li>📦 <strong>Gradle:</strong> Static analysis & quality config snippets</li>
-          </ul>
-
-          <p>
-            📁 <a href="https://github.com/itspkannan/tinkerpad" target="_blank">View on GitHub →</a>
-          </p>
-        </section>
-    </p>
+  <script>
+    window.addEventListener("message", function(event) {
+      if (event.data && event.data.page) {
+        document.getElementById("content-frame").src = event.data.page;
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>📂 Developer Labs Menu</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000;
+      color: #f0f0f0;
+    }
+
+    .menu {
+      padding: 30px 20px 30px 12px;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+    }
+
+    .menu a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #ccc;
+      text-decoration: none;
+      font-size: 15px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      transition: background 0.2s ease, color 0.2s ease;
+      white-space: nowrap;      
+      overflow: hidden;         
+      text-overflow: ellipsis; 
+      position: relative;
+    }
+
+    .menu a:hover {
+      color: #1abc9c;
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .menu a img {
+      width: 18px;
+      height: 18px;
+      vertical-align: middle;
+    }
+
+  .menu a[data-title]:hover::after {
+    content: attr(data-title);
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 12px); 
+    transform: translateY(-50%);
+    background-color: #333;
+    color: #fff;
+    white-space: nowrap;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    z-index: 1000;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  }
+  </style>
+</head>
+<body>
+  <div class="menu">
+    <a href="#" onclick="loadPage('cloudlab.html')" data-title="Cloud Microservices Lab">
+      ☁️ Cloud Microservices Lab
+    </a>
+    <a href="#" onclick="loadPage('security.html')" data-title="Security & Policy Management">
+      🔐 Security & Policy Management
+    </a>
+    <a href="#" onclick="loadPage('k8s-lab.html')" data-title="Kubernetes Lab">
+      <img src="icons/k8s.png" alt="K8s Icon"> Kubernetes Lab
+    </a>
+    <a href="#" onclick="loadPage('financial-studies.html')" data-title="Quantitative Research, Event Studies & Simulations">
+      📚 Financial Studies
+    </a>
+    <a href="#" onclick="loadPage('tinkerpad.html')" data-title="Tinkerpad — Developer Tools & Learning Notes">
+      🛠️ Tinkerpad
+    </a>
+  </div>
+
+  <script>
+    function loadPage(page) {
+      parent.document.getElementById('content-frame').src = page;
+    }
+  </script>
+</body>
+</html>
