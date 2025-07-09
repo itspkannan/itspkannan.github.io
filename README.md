@@ -58,23 +58,28 @@ A portfolio of Kubernetes hands-on labs, including:
 
 🔗 [View on GitHub](https://github.com/itspkannan/kubernetes_lab)
 
-### 📈 Quant Lab – Learn, Prototype & Research in Quantitative Finance
+### 📚 Financial Studies
 
-A fully modular research lab combining **R**, **QuantStrat/PortfolioAnalytics**, and **PineScript** to build, validate, and document trading strategies—plus deep analyses using Monte Carlo, walk-forward methods, volatility modeling, and macro event studies.
+Exploring quantitative studies in trading, finance, and market behavior.
 
-- 🔁 Built strategies include **Linear Regression Curves**, **SMA Crossovers**, and **Stop‑Loss Optimization**  
-- 🎯 Evaluated via **Sharpe Ratio**, **Max Drawdown**, **Walk‑Forward Equity Curves**, and **Monte Carlo robustness** simulations  
-- 🧪 Used `quantstrat`’s **walk.forward** for repeated in/out‑of‑sample parameter optimization :contentReference[oaicite:21]{index=21}  
-- 🌐 Developed **PineScript indicators** for visual signal alignment on TradingView  
-- 🧠 Conducted ETF & volatility‑event research (e.g. VIX spikes, macro announcements)  
-- 📁 Scripts are reproducible and modular, with detailed RMarkdown (`ProjectReport.Rmd`) and PDF outputs  
-- 📖 Referenced formal studies on walk‑forward analysis (Pardo, 1992) and Monte Carlo in finance (GBM, VaR simulation)
+#### 📈 [Simulation Models](https://github.com/itspkannan/financial-models-lab)
 
+- 🔄 Stochastic Models: Includes Random Walk and Monte Carlo Simulation techniques
+- 📈 Use Cases: Applied for asset price modeling and strategy simulation in quantitative finance (TODO)
 
-[[View on GitHub]](https://github.com/itspkannan/quant-lab) for code, reports, and strategy breakdowns.
+####  📰 [Event Studies](https://github.com/itspkannan/event-studies) 
 
+- 📰 News & Events Impact: Market reactions to earnings, breaking news, and macroeconomic surprises (TODO)
 
-## 🛠️ Tinkerpad — Developer Tools & Learning Notes 
+#### 🧠 [Quantitative Strategy Prototyping](https://github.com/itspkannan/quant-lab)
+
+* 📊 Technical signal prototyping using **R/Python**, **PineScript**, and **walk-forward backtesting**
+* 🔁 Built strategies include **Linear Regression Curves**, **SMA Crossovers**, and **Stop‑Loss Optimization**
+* 🧪 Used `quantstrat`’s **walk.forward** for repeated in/out‑of‑sample parameter optimization&#x20;
+* 🌐 Developed **PineScript indicators** for visual signal alignment on TradingView
+* 🧠 Conducted **ETF** & **volatility‑event research** (e.g. **VIX spikes**, **macro announcements**)
+
+### 🛠️ Tinkerpad — Developer Tools & Learning Notes 
 
 A growing collection of **handy scripts and snippets** that streamline common developer workflows:
 
