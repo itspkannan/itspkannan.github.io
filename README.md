@@ -74,7 +74,7 @@ Exploring quantitative studies in trading, finance, and market behavior.
 
 - 📰 News & Events Impact: Market reactions to earnings, breaking news, and macroeconomic surprises (TODO)
 
-🔗 [View on GitHub](https://github.com/itspkannan/event-studies)
+🔗 [View on GitHub](https://github.com/itspkannan/event-studies-lab)
 
 #### 🧠 Quantitative Strategy Prototyping
 
