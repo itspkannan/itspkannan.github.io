@@ -7,39 +7,53 @@
     html, body {
       margin: 0;
       padding: 0;
-      height: 100%;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #ffffff;
+      background-color: #fff;
       color: #333;
     }
 
-.container {
-  padding: 40px;
-  box-sizing: border-box;
-  width: 100%;
-  min-height: 100vh;
-  overflow-y: auto;
-}
+    .container {
+      padding: 20px 40px;
+      box-sizing: border-box;
+    }
 
-    h1, h2, h3 {
-      margin-top: 0;
+    h1 {
+      margin-bottom: 20px;
       color: #2c3e50;
     }
 
-    p {
+    .tabs {
+      display: flex;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #ccc;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      border: none;
+      background: none;
       font-size: 16px;
-      line-height: 1.6;
-      margin-bottom: 16px;
+      border-bottom: 3px solid transparent;
+    }
+
+    .tab.active {
+      border-bottom: 3px solid #2c3e50;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
     }
 
     ul {
       list-style-type: disc;
       padding-left: 20px;
-      margin-bottom: 20px;
-    }
-
-    li {
-      margin-bottom: 8px;
     }
 
     a {
@@ -49,6 +63,10 @@
 
     a:hover {
       text-decoration: underline;
+    }
+
+    article {
+      margin-bottom: 20px;
     }
 
     hr {
@@ -62,13 +80,17 @@
   <div class="container">
     <h1>🔐 Security and Policy Management</h1>
 
-    <section id="authx-workshop">
+    <div class="tabs">
+      <button class="tab active" onclick="showTab('authx')">AuthX Workshop</button>
+      <button class="tab" onclick="showTab('opa')">Open Policy Agent(OPA) Workshop</button>
+    </div>
+
+    <div id="authx" class="tab-content active">
       <h3>🔐 AuthX Workshop — OAuth2 & OIDC Playground</h3>
       <p>
         <strong>Goal:</strong> Explore and understand <code>OAuth2</code> and <code>OpenID Connect</code> using 
-        <a href="https://www.keycloak.org/" target="_blank">Keycloak</a> as an Identity Provider. This hands-on project sets up a complete environment to test client authentication flows, token issuance, and policy enforcement via OPA.
+        <a href="https://www.keycloak.org/" target="_blank">Keycloak</a> as an Identity Provider.
       </p>
-
       <ul>
         <li>🧪 Provision demo clients, realms, roles, and users via Terraform.</li>
         <li>⚙️ Run a Keycloak server using Docker Compose with preconfigured clients and admin UI.</li>
@@ -76,67 +98,72 @@
         <li>🛡️ Integrate <strong>Open Policy Agent (OPA)</strong> for fine-grained authorization.</li>
         <li>📂 Includes Makefile automation for local testing and sandbox provisioning.</li>
       </ul>
-
       <p>📁 <a href="https://github.com/itspkannan/authx-workshop" target="_blank">View on GitHub →</a></p>
-    </section>
+    </div>
 
-    <hr />
-
-  <section id="opa-workshop">
-    <h3>🔐 OPA Workshop — Policy-Driven Microservices</h3>
-    <p>
-      <strong>Goal:</strong> Build a modular environment to test <code>Open Policy Agent</code> integration with modern microservices.
-    </p>
-
-    <ul>
-      <li>✅ Supports local, bundle server, and S3-based Rego policy loading</li>
-      <li>🔒 Enforces field-level access with JWT and OAuth2 authorization</li>
-      <li>🧪 Demonstrates real-world authorization workflows using Sanic API</li>
-      <li>🚀 Deployable via Docker and Helm with K3d simulating Kubernetes</li>
-    </ul>
-
-    <h4>🎯 Workshop Modules by Goal</h4>
-
-    <article>
-      <h5>📦 Local, Remote, and S3 Rego Policy Loading</h5>
+    <div id="opa" class="tab-content">
+      <h3>🔐 Open Policy Agent(OPA) Workshop — Policy-Driven Microservices</h3>
       <p>
-        Explore how to load Rego policies into OPA via local filesystem, a remote bundle server, or an S3 bucket (with LocalStack).
-      </p>
-      <p><a href="https://github.com/itspkannan/OPA-Workshop/tree/main/project1_and_project2_restapi-auth-opa-integration" target="_blank">Explore Module →</a></p>
-    </article>
-
-    <article>
-      <h5>🔑 Authorization Middleware with JWT & OAuth2</h5>
-      <p>
-        Integrate JWT-based authentication and role-based access control enforced by OPA for securing REST API endpoints.
-      </p>
-      <p><a href="https://github.com/itspkannan/OPA-Workshop/tree/main/project1_and_project2_restapi-auth-opa-integration" target="_blank">Explore Module →</a></p>
-    </article>
-
-    <article>
-      <h5>⚙️ OPA Sidecar in Kubernetes with Helm + K3d</h5>
-      <p>
-        Learn how to deploy OPA as a sidecar container alongside your microservices in a Kubernetes cluster using Helm charts.
-      </p>
-      <p><a href="https://github.com/itspkannan/OPA-Workshop/tree/main/project1_and_project2_restapi-auth-opa-integration" target="_blank">Explore Module →</a></p>
-    </article>
-
-    <article>
-      <h5>🧠 OPA Prompt Filtering for LLMs via NGINX + OpenResty</h5>
-      <p>
-          Add a security check on prompt sent to OLLAMA using OPA
+        <strong>Goal:</strong> Build a modular environment to test <code>Open Policy Agent</code> integration with modern microservices.
       </p>
       <ul>
-        <li>🔍 Inspect prompt content at the gateway level.</li>
-        <li>🛡️ Call OPA’s endpoint to enforce content filtering policies.</li>
-        <li>🤖 Only forward validated prompts to the <code>llm_service</code> running the Ollama model.</li>
+        <li>✅ Supports local, bundle server, and S3-based Rego policy loading</li>
+        <li>🔒 Enforces field-level access with JWT and OAuth2 authorization</li>
+        <li>🧪 Demonstrates real-world authorization workflows using Sanic API</li>
+        <li>🚀 Deployable via Docker and Helm with K3d simulating Kubernetes</li>
       </ul>
-      <p><a href="https://github.com/itspkannan/OPA-Workshop/tree/main/project5-ollama-prompt-security-opa-nginx-proxy" target="_blank">Explore Module →</a></p>
-    </article>
 
-    <p>📁 <a href="https://github.com/itspkannan/OPA-Workshop" target="_blank">View Full Workshop on GitHub →</a></p>
-  </section>
+      <h4>🎯 Workshop Modules by Goal</h4>
 
+      <article>
+        <h5>📦 Local, Remote, and S3 Rego Policy Loading</h5>
+        <p>
+          Explore how to load Rego policies into OPA via local filesystem, a remote bundle server, or an S3 bucket (with LocalStack).
+        </p>
+        <p><a href="https://github.com/itspkannan/OPA-Workshop/tree/main/project1_and_project2_restapi-auth-opa-integration" target="_blank">Explore Module →</a></p>
+      </article>
+
+      <article>
+        <h5>🔑 Authorization Middleware with JWT & OAuth2</h5>
+        <p>
+          Integrate JWT-based authentication and role-based access control enforced by OPA for securing REST API endpoints.
+        </p>
+        <p><a href="https://github.com/itspkannan/OPA-Workshop/tree/main/project1_and_project2_restapi-auth-opa-integration" target="_blank">Explore Module →</a></p>
+      </article>
+
+      <article>
+        <h5>⚙️ OPA Sidecar in Kubernetes with Helm + K3d</h5>
+        <p>
+          Learn how to deploy OPA as a sidecar container alongside your microservices in a Kubernetes cluster using Helm charts.
+        </p>
+        <p><a href="https://github.com/itspkannan/OPA-Workshop/tree/main/project1_and_project2_restapi-auth-opa-integration" target="_blank">Explore Module →</a></p>
+      </article>
+
+      <article>
+        <h5>🧠 OPA Prompt Filtering for LLMs via NGINX + OpenResty</h5>
+        <p>
+          Add a security check on prompt sent to OLLAMA using OPA
+        </p>
+        <ul>
+          <li>🔍 Inspect prompt content at the gateway level.</li>
+          <li>🛡️ Call OPA’s endpoint to enforce content filtering policies.</li>
+          <li>🤖 Only forward validated prompts to the <code>llm_service</code> running the Ollama model.</li>
+        </ul>
+        <p><a href="https://github.com/itspkannan/OPA-Workshop/tree/main/project5-ollama-prompt-security-opa-nginx-proxy" target="_blank">Explore Module →</a></p>
+      </article>
+
+      <p>📁 <a href="https://github.com/itspkannan/OPA-Workshop" target="_blank">View Full Workshop on GitHub →</a></p>
+    </div>
   </div>
+
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('.tab').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+
+      document.querySelector(`.tab[onclick="showTab('${tabId}')"]`).classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+  </script>
 </body>
 </html>
