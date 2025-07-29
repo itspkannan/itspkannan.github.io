@@ -13,13 +13,13 @@
       color: #333;
     }
 
-    .container {
-      padding: 40px;
-      box-sizing: border-box;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
+.container {
+  padding: 40px;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: auto;
+}
 
     h1, h2, h3 {
       margin-top: 0;
@@ -82,21 +82,61 @@
 
     <hr />
 
-    <section id="opa-workshop">
-      <h3>🔐 OPA Workshop — Policy-Driven Microservices</h3>
+  <section id="opa-workshop">
+    <h3>🔐 OPA Workshop — Policy-Driven Microservices</h3>
+    <p>
+      <strong>Goal:</strong> Build a modular environment to test <code>Open Policy Agent</code> integration with modern microservices.
+    </p>
+
+    <ul>
+      <li>✅ Supports local, bundle server, and S3-based Rego policy loading</li>
+      <li>🔒 Enforces field-level access with JWT and OAuth2 authorization</li>
+      <li>🧪 Demonstrates real-world authorization workflows using Sanic API</li>
+      <li>🚀 Deployable via Docker and Helm with K3d simulating Kubernetes</li>
+    </ul>
+
+    <h4>🎯 Workshop Modules by Goal</h4>
+
+    <article>
+      <h5>📦 Local, Remote, and S3 Rego Policy Loading</h5>
       <p>
-        <strong>Goal:</strong> Build a modular environment to test <code>Open Policy Agent</code> integration with modern microservices.
+        Explore how to load Rego policies into OPA via local filesystem, a remote bundle server, or an S3 bucket (with LocalStack).
       </p>
+      <p><a href="https://github.com/itspkannan/OPA-Workshop/tree/main/project1_and_project2_restapi-auth-opa-integration" target="_blank">Explore Module →</a></p>
+    </article>
 
+    <article>
+      <h5>🔑 Authorization Middleware with JWT & OAuth2</h5>
+      <p>
+        Integrate JWT-based authentication and role-based access control enforced by OPA for securing REST API endpoints.
+      </p>
+      <p><a href="https://github.com/itspkannan/OPA-Workshop/tree/main/project1_and_project2_restapi-auth-opa-integration" target="_blank">Explore Module →</a></p>
+    </article>
+
+    <article>
+      <h5>⚙️ OPA Sidecar in Kubernetes with Helm + K3d</h5>
+      <p>
+        Learn how to deploy OPA as a sidecar container alongside your microservices in a Kubernetes cluster using Helm charts.
+      </p>
+      <p><a href="https://github.com/itspkannan/OPA-Workshop/tree/main/project1_and_project2_restapi-auth-opa-integration" target="_blank">Explore Module →</a></p>
+    </article>
+
+    <article>
+      <h5>🧠 OPA Prompt Filtering for LLMs via NGINX + OpenResty</h5>
+      <p>
+          Add a security check on prompt sent to OLLAMA using OPA
+      </p>
       <ul>
-        <li>✅ Supports local, bundle server, and S3-based Rego policy loading</li>
-        <li>🔒 Enforces field-level access with JWT and OAuth2 authorization</li>
-        <li>🧪 Demonstrates real-world authorization workflows using Sanic API</li>
-        <li>🚀 Deployable via Docker and Helm with K3d simulating Kubernetes</li>
+        <li>🔍 Inspect prompt content at the gateway level.</li>
+        <li>🛡️ Call OPA’s endpoint to enforce content filtering policies.</li>
+        <li>🤖 Only forward validated prompts to the <code>llm_service</code> running the Ollama model.</li>
       </ul>
+      <p><a href="https://github.com/itspkannan/OPA-Workshop/tree/main/project5-ollama-prompt-security-opa-nginx-proxy" target="_blank">Explore Module →</a></p>
+    </article>
 
-      <p>📁 <a href="https://github.com/itspkannan/OPA-Workshop" target="_blank">View on GitHub →</a></p>
-    </section>
+    <p>📁 <a href="https://github.com/itspkannan/OPA-Workshop" target="_blank">View Full Workshop on GitHub →</a></p>
+  </section>
+
   </div>
 </body>
 </html>
