@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Cloud Microservices Lab</title>
+  <title>☁️ Cloud Microservices Lab</title>
   <style>
     html, body {
       margin: 0;
@@ -50,6 +50,36 @@
     a:hover {
       text-decoration: underline;
     }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #ccc;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-size: 16px;
+      border-bottom: 3px solid transparent;
+    }
+
+    .tab.active {
+      border-bottom: 3px solid #2c3e50;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -58,7 +88,12 @@
 
     <p><strong>Goal:</strong> Build and simulate cloud-native microservices across AWS, Azure, and GCP using local development tools.</p>
 
-    <section id="aws-lab">
+    <div class="tabs">
+      <button class="tab active" onclick="showTab('aws')">AWS Lab</button>
+      <button class="tab" onclick="showTab('azure')">Azure Lab</button>
+    </div>
+
+    <div id="aws" class="tab-content active">
       <h3>🟧 AWS Microservices Lab using LocalStack</h3>
       <p><strong>Goal:</strong> Simulate AWS microservice architecture locally for rapid prototyping.</p>
 
@@ -71,9 +106,10 @@
       </ul>
 
       <p>📁 <a href="https://github.com/itspkannan/aws-microservices-workshop-localstack" target="_blank">View on GitHub →</a></p>
-    </section>
-        <section id="azure-lab">
-      <h3>🟦 Azure Microservices Lab </h3>
+    </div>
+
+    <div id="azure" class="tab-content">
+      <h3>🟦 Azure Microservices Lab</h3>
       <p><strong>Goal:</strong> Simulate Azure-based microservices with secure deployment, VNet peering, and role-based access.</p>
 
       <ul>
@@ -84,8 +120,17 @@
       </ul>
 
       <p>📁 <a href="https://github.com/itspkannan/azure_workshop" target="_blank">View on GitHub →</a></p>
-    </section>
+    </div>
   </div>
-  </div>
+
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('.tab').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+
+      document.querySelector(`.tab[onclick="showTab('${tabId}')"]`).classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+  </script>
 </body>
 </html>
