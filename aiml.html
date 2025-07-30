@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🔐 Security and Policy Management</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff;
+      color: #333;
+    }
+
+    .container {
+      padding: 20px 40px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+    .tabs {
+      display: flex;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #ccc;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-size: 16px;
+      border-bottom: 3px solid transparent;
+    }
+
+    .tab.active {
+      border-bottom: 3px solid #2c3e50;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    a {
+      color: #1a0dab;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    article {
+      margin-bottom: 20px;
+    }
+
+    hr {
+      margin: 40px 0;
+      border: none;
+      border-top: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔐 Security and Policy Management</h1>
+
+    <div class="tabs">
+      <button class="tab active" onclick="showTab('ai_finance')">AI and Finance</button>
+      <button class="tab" onclick="showTab('security_observability')">Security, Rate Limiting and Observability</button>
+    </div>
+
+    <div id="ai_finance" class="tab-content">
+      TODO
+    </div>
+    <div id="security_observability" class="tab-content">
+      <h3>🔐 Prompt - Security(Filtering), Rate limiting and Observability</h3>
+      <p><a href="https://github.com/itspkannan/ai_lab/tree/main/ollama_security_observability_ratelimiting" target="_blank">Explore Project</a></p>
+      <article>
+        <h5>🧠 OPA Prompt Filtering for LLMs via NGINX + OpenResty</h5>
+        <p>
+          Add a security check on prompts sent to OLLAMA using OPA
+        </p>
+        <ul>
+          <li>🔍 Inspect prompt content at the gateway level.</li>
+          <li>🛡️ Call OPA’s endpoint to enforce content filtering policies.</li>
+          <li>🤖 Only forward validated prompts to the <code>llm_service</code> running the Ollama model.</li>
+        </ul>
+      </article>
+
+      <article>
+        <h5>🚦 Sliding Window Rate Limiting with Redis</h5>
+        <p>
+          Prevent abuse and control request flow using Redis-based rate limiting.
+        </p>
+        <ul>
+          <li>📉 Sliding window algorithm to allow burst flexibility.</li>
+          <li>⏱️ Lua script in NGINX checks Redis before forwarding requests.</li>
+          <li>❌ Blocks requests that exceed allowed rate.</li>
+        </ul>
+      </article>
+
+      <article>
+        <h5>📊 Observability with Prometheus + Grafana</h5>
+        <p>
+          Gain visibility into prompt flow, errors, and token usage across the LLM gateway.
+        </p>
+        <ul>
+          <li>📈 Expose metrics from NGINX + Lua for request and token stats.</li>
+          <li>📦 Export metrics to Prometheus.</li>
+          <li>📊 Visualize system health and LLM usage in Grafana.</li>
+        </ul>
+      </article>
+
+      <p>📁 <a href="https://github.com/itspkannan/ai-lab" target="_blank">View Full Workshop on GitHub →</a></p>
+    </div>
+  </div>
+
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('.tab').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+
+      document.querySelector(`.tab[onclick="showTab('${tabId}')"]`).classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+  </script>
+</body>
+</html>
